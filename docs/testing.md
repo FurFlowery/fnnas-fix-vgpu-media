@@ -2,12 +2,15 @@
 
 | 项目 | 实测环境 |
 |---|---|
-| 平台 | 飞牛 NAS，Linux x86-64，systemd 管理的 `mediasrv.service` |
+| 平台 | 飞牛 NAS，fnOS `1.2.1102`，Linux x86-64，systemd 管理的 `mediasrv.service` |
 | 应用 | 飞牛影视中心 0.8.45 |
-| GPU | NVIDIA Tesla V100-SXM2-16GB，vGPU 环境；应用日志识别设备 ID 为 `10de:1db1` |
+| GPU / vGPU | NVIDIA Tesla V100-SXM2-16GB，来宾机使用 `V100-2Q` 配置。应用日志识别设备 ID 为 `10de:1db1` |
+| 来宾机驱动 | NVIDIA GRID `580.159.03`。[驱动来源](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid) |
+| 驱动发布与文件 | 发布标签 `2026.11.02-15-19-45`。[nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid/releases/download/2026.11.02-15-19-45/nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk) |
+| 驱动包目标内核 | `6.18.18.c1168-trim-amd64`，取自包名。测试时的 `uname -r` 未单独采集 |
 | 媒体库 | 飞牛定制 `8.1.1-mediasrv`，`libavutil.so.60`、`libavfilter.so.11` |
 | 文件系统 | 该机 `/run` 带 `noexec`，补丁库暂存在 `/var/lib/fn-v100-host-bridge-v3` |
-| 未记录信息 | fnOS 系统小版本、内核版本、宿主机和来宾机驱动版本、vGPU profile |
+| 宿主机 vGPU Manager 版本 | 未记录 |
 
 ### 精确适配的厂商文件
 

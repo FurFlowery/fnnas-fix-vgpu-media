@@ -4,6 +4,15 @@
 
 [下载完整补丁及 SHA-256 校验文件](https://github.com/FurFlowery/fnnas-fix-vgpu-media/releases/latest) · [故障定位与源码修复建议](docs/diagnosis.md) · [测试环境、格式清单及限制](docs/testing.md)
 
+## 实测环境
+
+| 项目 | 配置 |
+|---|---|
+| GPU / vGPU | NVIDIA Tesla V100-SXM2-16GB，来宾机使用 `V100-2Q` 配置 |
+| 操作系统 / 应用 | fnOS `1.2.1102`（x86-64），飞牛影视中心 `0.8.45` |
+| 来宾机驱动 | NVIDIA GRID `580.159.03`，来自 [fnnas/appstore.driver.gpu.nvidia.grid](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid) |
+| 实测驱动包 | [nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid/releases/download/2026.11.02-15-19-45/nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk) |
+
 ## 为什么会花屏
 
 飞牛将 CUDA 解码帧送入 Vulkan 的 `scale_vulkan`，再将缩放结果传回 CUDA 编码。用合成 NV12 图案分别测试两个方向，直接传输有时会返回成功，但接收端读出的亮度和色度已经错误。强制拆分 Vulkan 平面后仍能复现。改用系统内存分别下载、上传，同样的图案在缩放前后逐行比对一致。
