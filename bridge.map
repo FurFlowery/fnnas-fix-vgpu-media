@@ -1,0 +1,1 @@
+LIBAVUTIL_60 { global: av_hwframe_transfer_data; fn_bridge_ready; local: *; };
