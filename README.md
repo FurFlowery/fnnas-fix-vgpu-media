@@ -8,8 +8,10 @@
 
 | 项目 | 配置 |
 |---|---|
-| GPU / vGPU | NVIDIA Tesla V100-SXM2-16GB，来宾机使用 `V100-2Q` 配置 |
-| 操作系统 / 应用 | fnOS `1.2.1102`（x86-64），飞牛影视中心 `0.8.45` |
+| 宿主机系统 | VMware ESXi 8.0 U3j，构建号 `25429389` |
+| 宿主机 CPU / GPU | Intel(R) Xeon(R) Platinum 8175M / NVIDIA Tesla V100-SXM2-16GB |
+| 宿主机 vGPU 驱动 | `580.159.01-1OEM.800.1.0.20613240` |
+| 来宾机系统 / 应用 / vGPU | fnOS `1.2.1102`（x86-64），飞牛影视中心 `0.8.45`，vGPU 配置 `V100-2Q` |
 | 来宾机驱动 | NVIDIA GRID `580.159.03`，来自 [fnnas/appstore.driver.gpu.nvidia.grid](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid) |
 | 实测驱动包 | [nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid/releases/download/2026.11.02-15-19-45/nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk) |
 

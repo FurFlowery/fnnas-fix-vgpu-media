@@ -1,16 +1,26 @@
 # 测试环境与结果
 
+### ESXi 宿主机
+
+| 项目 | 实测环境 |
+|---|---|
+| 虚拟化平台 | VMware ESXi 8.0 U3j，完整版本标识 `ESXi-8.0U3j-25429389` |
+| CPU | Intel(R) Xeon(R) Platinum 8175M |
+| 物理 GPU | NVIDIA Tesla V100-SXM2-16GB（16 GB），型号拼写取自应用设备日志 |
+| 宿主机 NVIDIA vGPU 驱动 | `580.159.01-1OEM.800.1.0.20613240` |
+
+### fnOS 来宾机
+
 | 项目 | 实测环境 |
 |---|---|
 | 平台 | 飞牛 NAS，fnOS `1.2.1102`，Linux x86-64，systemd 管理的 `mediasrv.service` |
 | 应用 | 飞牛影视中心 0.8.45 |
-| GPU / vGPU | NVIDIA Tesla V100-SXM2-16GB，来宾机使用 `V100-2Q` 配置。应用日志识别设备 ID 为 `10de:1db1` |
+| vGPU | `V100-2Q`。应用日志识别设备 ID 为 `10de:1db1` |
 | 来宾机驱动 | NVIDIA GRID `580.159.03`。[驱动来源](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid) |
 | 驱动发布与文件 | 发布标签 `2026.11.02-15-19-45`。[nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk](https://github.com/fnnas/appstore.driver.gpu.nvidia.grid/releases/download/2026.11.02-15-19-45/nvidia.ko-580.159.03-3-6.18.18.c1168-trim-amd64.tgz.fpk) |
 | 驱动包目标内核 | `6.18.18.c1168-trim-amd64`，取自包名。测试时的 `uname -r` 未单独采集 |
 | 媒体库 | 飞牛定制 `8.1.1-mediasrv`，`libavutil.so.60`、`libavfilter.so.11` |
 | 文件系统 | 该机 `/run` 带 `noexec`，补丁库暂存在 `/var/lib/fn-v100-host-bridge-v3` |
-| 宿主机 vGPU Manager 版本 | 未记录 |
 
 ### 精确适配的厂商文件
 
